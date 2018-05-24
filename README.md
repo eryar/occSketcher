@@ -6,3 +6,7 @@ This sketcher allows to create 2D sketches by using snaps, geometric primitives.
 
 Source code from:
 http://www.laduga.com/software/occsketcher/index.html
+
+License
+-------
+GNU Library or Lesser General Public License (LGPL) or Open Software License
