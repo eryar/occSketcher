@@ -302,7 +302,7 @@ void Sketcher::DeleteSelectedObject()
 	myCurObject = Handle(Sketcher_Object)::DownCast(myData->Value(i));
 	if (myContext->IsSelected (myCurObject->GetAIS_Object()))
 	{
-		myContext->Erase(myCurObject->GetAIS_Object(),Standard_True,Standard_False);
+		myContext->Erase(myCurObject->GetAIS_Object(),Standard_True);
 		myData->Remove (i);
 	}
   }

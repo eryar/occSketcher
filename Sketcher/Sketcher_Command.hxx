@@ -21,7 +21,7 @@
 #include <Geom_CartesianPoint.hxx>
 #include <AIS_Line.hxx>
 
-#include <AIS_Drawer.hxx>
+//#include <AIS_Drawer.hxx>
 #include <Prs3d_LineAspect.hxx>
 
 #define SKETCHER_RADIUS 0
@@ -197,7 +197,7 @@ Quantity_NameOfColor					myColor;
 Sketcher_ObjectType						myType;
 Aspect_TypeOfLine						myStyle;
 Standard_Real							myWidth;
-Handle(AIS_Drawer)						myDrawer;
+//Handle(AIS_Drawer)						myDrawer;
 Handle(Prs3d_LineAspect)				myPrs3dAspect;
 
 Standard_Boolean						myPolylineMode;

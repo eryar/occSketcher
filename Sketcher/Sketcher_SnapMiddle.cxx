@@ -86,7 +86,7 @@ Sketcher_SnapType Sketcher_SnapMiddle::GetSnapType()
 }
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapMiddle,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapMiddle,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapMiddle)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapMiddle)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

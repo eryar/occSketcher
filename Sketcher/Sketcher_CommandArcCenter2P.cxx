@@ -64,7 +64,7 @@ Standard_Boolean Sketcher_CommandArcCenter2P::MouseInputEvent(const gp_Pnt2d& th
 		
 			myRubberCircle->SetCircle(tempGeom_Circle);
 			myRubberCircle->SetFirstParam(0);
-			myRubberCircle->SetLastParam (Standard_PI * 2);
+			myRubberCircle->SetLastParam (M_PI * 2);
 			myContext->Display(myRubberCircle,0,-1);
 
 			myRubberCenterPoint->SetComponent(myFirstPoint);
@@ -238,7 +238,7 @@ Standard_Boolean Sketcher_CommandArcCenter2P::ProjectOnCircle(const gp_Pnt2d& th
 }
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandArcCenter2P,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandArcCenter2P,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandArcCenter2P)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandArcCenter2P)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

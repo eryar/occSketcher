@@ -453,7 +453,7 @@ Standard_Boolean Sketcher_CommandCircle3Tan::StoregpObject()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandCircle3Tan,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle3Tan,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle3Tan)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandCircle3Tan)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

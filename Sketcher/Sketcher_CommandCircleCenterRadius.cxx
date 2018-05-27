@@ -160,7 +160,7 @@ Sketcher_ObjectTypeOfMethod Sketcher_CommandCircleCenterRadius::GetTypeOfMethod(
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandCircleCenterRadius,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircleCenterRadius,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircleCenterRadius)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandCircleCenterRadius)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

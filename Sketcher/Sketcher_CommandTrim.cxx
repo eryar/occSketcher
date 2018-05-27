@@ -188,7 +188,7 @@ void Sketcher_CommandTrim::FixObjectPoints()
 	myPrs3dAspect->SetColor(myColor);
 	myPrs3dAspect->SetTypeOfLine(myStyle);
 	myPrs3dAspect->SetWidth(myWidth);
-	myDrawer->SetLineAspect(myPrs3dAspect);
+	//myDrawer->SetLineAspect(myPrs3dAspect);
 	ObjectName = mySObject->GetObjectName() + TrimName;
 
 	TypeofObject = mySObject->GetGeometryType();
@@ -281,8 +281,8 @@ void Sketcher_CommandTrim::TrimCurve()
 	case CircleSketcherObject:	if(mySeqOfPntU.Length() <= 1 ) DelTrimmedObject();
 								else
 								{
-									if ((mySeqOfPntU.First() + 2*Standard_PI) != mySeqOfPntU.Last())
-										mySeqOfPntU.Append (mySeqOfPntU.First() + 2*Standard_PI);
+									if ((mySeqOfPntU.First() + 2*M_PI) != mySeqOfPntU.Last())
+										mySeqOfPntU.Append (mySeqOfPntU.First() + 2*M_PI);
 									if(mySeqOfPntU(1) > NearestPntU)
 									{
 										FirstU = mySeqOfPntU(mySeqOfPntU.Length()-1);
@@ -296,7 +296,7 @@ void Sketcher_CommandTrim::TrimCurve()
 	case ArcSketcherObject:		if(mySeqOfPntU.Length() <= 2 ) DelTrimmedObject();
 								else
 								{
-									if (NearestPntU < FirstU) NearestPntU += 2*Standard_PI;
+									if (NearestPntU < FirstU) NearestPntU += 2*M_PI;
 									FindSegment();
 									if(FirstU == mySeqOfPntU.First())
 										EditArc(SecondU,mySeqOfPntU.Last());
@@ -347,7 +347,7 @@ void Sketcher_CommandTrim::SetParam()
 	else 
 	{
 		tempU = ElCLib::Parameter(nearestgp_Circ2d,tempPnt2d);
-		if (tempU < FirstU) tempU += 2*Standard_PI;
+		if (tempU < FirstU) tempU += 2*M_PI;
 		AddParam();
 	}
 }
@@ -498,7 +498,7 @@ void Sketcher_CommandTrim::RedrawOld()
 void Sketcher_CommandTrim::DelTrimmedObject()
 {
 	if (Redraw())
-		myContext->Erase(curTrimmedObj,Standard_True,Standard_False);
+		myContext->Erase(curTrimmedObj,Standard_True);
 
 	if(isInputMouse)
 	{
@@ -529,8 +529,8 @@ void Sketcher_CommandTrim::EditLine(Standard_Real u1,Standard_Real u2)
 		Handle (Geom_CartesianPoint) Geom_Point2 = new Geom_CartesianPoint(ElCLib::To3d(curCoordinateSystem.Ax2(),mySecondgp_Pnt2d));
 
 		Handle(AIS_Line) myAIS_Line = new AIS_Line(Geom_Point1,Geom_Point2);
-		myAIS_Line->SetAttributes(myDrawer);
-		myContext->Erase(curTrimmedObj,Standard_True,Standard_False);
+		//myAIS_Line->SetAttributes(myDrawer);
+		myContext->Erase(curTrimmedObj,Standard_True);
 		myContext->Display(myAIS_Line);
 
 		FirstObj = myAIS_Line;
@@ -570,7 +570,7 @@ void Sketcher_CommandTrim::AddNewLine(Standard_Real u1,Standard_Real u2)
 		Handle (Geom_CartesianPoint) Geom_Point1 = new Geom_CartesianPoint(ElCLib::To3d(curCoordinateSystem.Ax2(),StartPnt2d));
 		Handle (Geom_CartesianPoint) Geom_Point2 = new Geom_CartesianPoint(ElCLib::To3d(curCoordinateSystem.Ax2(),EndPnt2d));
 		Handle(AIS_Line) myAIS_Line = new AIS_Line(Geom_Point1,Geom_Point2);
-		myAIS_Line->SetAttributes(myDrawer);
+		//myAIS_Line->SetAttributes(myDrawer);
 
 		myContext->Display(myAIS_Line);
 		SecondObj = myAIS_Line;
@@ -594,7 +594,7 @@ void Sketcher_CommandTrim::AddNewLine(Standard_Real u1,Standard_Real u2)
 void Sketcher_CommandTrim::EditCircle()
 {
 	myFirstgp_Pnt2d  = ElCLib::Value(FirstU,nearestgp_Circ2d);
-	tempPnt2d = ElCLib::Value((FirstU + 2*Standard_PI + SecondU) / 2 ,nearestgp_Circ2d);
+	tempPnt2d = ElCLib::Value((FirstU + 2*M_PI + SecondU) / 2 ,nearestgp_Circ2d);
 	mySecondgp_Pnt2d = ElCLib::Value(SecondU,nearestgp_Circ2d);
 
 	newFirstObjParam_Start = FirstU;
@@ -609,9 +609,9 @@ void Sketcher_CommandTrim::EditCircle()
 		Handle(AIS_Circle) myAIS_Circle = new AIS_Circle(Geom_Circle1);
 		myAIS_Circle->SetFirstParam(tempGeom2d_Arc->FirstParameter());//(trimmedgp_Circ2d,myFirstgp_Pnt2d));
 		myAIS_Circle->SetLastParam (tempGeom2d_Arc->LastParameter());//ElCLib::Parameter(trimmedgp_Circ2d,mySecondgp_Pnt2d));
-		myAIS_Circle->SetAttributes(myDrawer);
+		//myAIS_Circle->SetAttributes(myDrawer);
 
-		myContext->Erase(curTrimmedObj,Standard_True,Standard_False);
+		myContext->Erase(curTrimmedObj,Standard_True);
 		myContext->Display(myAIS_Circle);
 
 		FirstObj = myAIS_Circle;
@@ -653,9 +653,9 @@ void Sketcher_CommandTrim::EditArc(Standard_Real u1,Standard_Real u2)
 		Handle(AIS_Circle) myAIS_Circle = new AIS_Circle(Geom_Circle1);
 		myAIS_Circle->SetFirstParam(tempGeom2d_Arc->FirstParameter());
 		myAIS_Circle->SetLastParam (tempGeom2d_Arc->LastParameter());
-		myAIS_Circle->SetAttributes(myDrawer);
+		//myAIS_Circle->SetAttributes(myDrawer);
 
-		myContext->Erase(curTrimmedObj,Standard_True,Standard_False);
+		myContext->Erase(curTrimmedObj,Standard_True);
 		myContext->Display(myAIS_Circle);
 
 		FirstObj = myAIS_Circle;
@@ -699,7 +699,7 @@ void Sketcher_CommandTrim::AddNewArc(Standard_Real u1,Standard_Real u2)
 		Handle(AIS_Circle) myAIS_Circle = new AIS_Circle(Geom_Circle1);
 		myAIS_Circle->SetFirstParam(tempGeom2d_Arc->FirstParameter());
 		myAIS_Circle->SetLastParam (tempGeom2d_Arc->LastParameter());
-		myAIS_Circle->SetAttributes(myDrawer);
+		//myAIS_Circle->SetAttributes(myDrawer);
 
 		myContext->Display(myAIS_Circle);
 		SecondObj = myAIS_Circle;
@@ -716,7 +716,7 @@ void Sketcher_CommandTrim::AddNewArc(Standard_Real u1,Standard_Real u2)
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandTrim,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandTrim,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandTrim)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandTrim)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

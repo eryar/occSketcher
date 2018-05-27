@@ -186,7 +186,7 @@ void Sketcher_SnapIntersection::DrawRelation()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapIntersection,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapIntersection,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapIntersection)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapIntersection)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

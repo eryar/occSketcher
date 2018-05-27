@@ -234,7 +234,7 @@ Standard_Real Sketcher_Object::GetWidth()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_Object,MMgt_TShared)
-IMPLEMENT_STANDARD_RTTI(Sketcher_Object,MMgt_TShared)
+IMPLEMENT_STANDARD_RTTI(Sketcher_Object)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_Object)
 IMPLEMENT_STANDARD_SUPERTYPE(MMgt_TShared)

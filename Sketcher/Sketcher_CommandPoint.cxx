@@ -98,7 +98,7 @@ Sketcher_ObjectTypeOfMethod Sketcher_CommandPoint::GetTypeOfMethod()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandPoint,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandPoint,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandPoint)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandPoint)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

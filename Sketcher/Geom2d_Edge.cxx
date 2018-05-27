@@ -96,7 +96,7 @@ Standard_Real Geom2d_Edge::EndParameter() const
 }
 
 IMPLEMENT_STANDARD_HANDLE(Geom2d_Edge,Geom2d_Line)
-IMPLEMENT_STANDARD_RTTI(Geom2d_Edge,Geom2d_Line)
+IMPLEMENT_STANDARD_RTTI(Geom2d_Edge)
 
 IMPLEMENT_STANDARD_TYPE(Geom2d_Edge)
 IMPLEMENT_STANDARD_SUPERTYPE(Geom2d_Line)

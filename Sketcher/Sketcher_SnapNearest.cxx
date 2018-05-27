@@ -71,7 +71,7 @@ Sketcher_SnapType Sketcher_SnapNearest::GetSnapType()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapNearest,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapNearest,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapNearest)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapNearest)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

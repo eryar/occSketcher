@@ -321,7 +321,7 @@ Standard_Boolean Sketcher_CommandCircle2PTan::SumDistanceToCircle ()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandCircle2PTan,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle2PTan,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle2PTan)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandCircle2PTan)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

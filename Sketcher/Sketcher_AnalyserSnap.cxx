@@ -436,7 +436,7 @@ void Sketcher_AnalyserSnap::SelectCurSnap ()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_AnalyserSnap,MMgt_TShared)
-IMPLEMENT_STANDARD_RTTI(Sketcher_AnalyserSnap,MMgt_TShared)
+IMPLEMENT_STANDARD_RTTI(Sketcher_AnalyserSnap)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_AnalyserSnap)
 IMPLEMENT_STANDARD_SUPERTYPE(MMgt_TShared)

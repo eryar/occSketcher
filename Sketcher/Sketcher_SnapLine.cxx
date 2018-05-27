@@ -78,7 +78,7 @@ void Sketcher_SnapLine::checkparallel()
 			curAngle = curDir2d.Angle(tempDir2d);
 			if (minAngle > curAngle) 
 				minAngle = curAngle;
-			else minAngle = Standard_PI - curAngle;
+			else minAngle = M_PI - curAngle;
 		}
 }
 
@@ -136,7 +136,7 @@ void Sketcher_SnapLine::setFirstPnt(const gp_Pnt2d& p)
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapLine,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLine,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLine)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapLine)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

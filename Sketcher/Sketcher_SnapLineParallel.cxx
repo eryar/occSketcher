@@ -103,7 +103,7 @@ void Sketcher_SnapLineParallel::EraseRelation()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapLineParallel,Sketcher_SnapLine)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLineParallel,Sketcher_SnapLine)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLineParallel)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapLineParallel)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_SnapLine)

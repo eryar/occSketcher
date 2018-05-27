@@ -237,7 +237,7 @@ Standard_Boolean Sketcher_Snap::count()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_Snap,MMgt_TShared)
-IMPLEMENT_STANDARD_RTTI(Sketcher_Snap,MMgt_TShared)
+IMPLEMENT_STANDARD_RTTI(Sketcher_Snap)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_Snap)
 IMPLEMENT_STANDARD_SUPERTYPE(MMgt_TShared)

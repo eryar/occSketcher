@@ -100,7 +100,7 @@ Sketcher_SnapType Sketcher_SnapEnd::GetSnapType()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapEnd,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapEnd,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapEnd)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapEnd)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

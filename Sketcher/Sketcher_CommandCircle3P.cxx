@@ -178,7 +178,7 @@ Sketcher_ObjectTypeOfMethod Sketcher_CommandCircle3P::GetTypeOfMethod()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandCircle3P,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle3P,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandCircle3P)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandCircle3P)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

@@ -32,7 +32,7 @@
 #include <BRepBuilderAPI_MakeEdge.hxx>
 
 #define MINIMUMSNAP 25
-#define	MINANGLE Standard_PI / 64
+#define	MINANGLE M_PI / 64
 
 class AIS_InteractiveContext;
 class AIS_Point;

@@ -310,7 +310,7 @@ void Sketcher_SnapTangent::SelectLine_FixEvent()
 			curAngle = mylin2d.Direction().Angle(tempDir2d);
 			if (minAngle > curAngle) 
 				minAngle = curAngle;
-			else minAngle = Standard_PI - curAngle;
+			else minAngle = M_PI - curAngle;
 
 			tempGeom2d_Line->SetLin2d(mylin2d);
 			ProjectOnCurve.Init(curPnt2d,tempGeom2d_Line);
@@ -435,7 +435,7 @@ void Sketcher_SnapTangent::SelectCurveCenterEvent()
 }
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapTangent,Sketcher_Snap)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapTangent,Sketcher_Snap)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapTangent)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapTangent)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Snap)

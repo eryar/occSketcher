@@ -193,7 +193,7 @@ void Sketcher_CommandLine2P::SetPolylineMode (Standard_Boolean mode)
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandLine2P,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandLine2P,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandLine2P)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandLine2P)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

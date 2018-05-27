@@ -114,7 +114,7 @@ void Sketcher_SnapLinePerpendicular::EraseRelation()
 }
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_SnapLinePerpendicular,Sketcher_SnapLine)
-IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLinePerpendicular,Sketcher_SnapLine)
+IMPLEMENT_STANDARD_RTTI(Sketcher_SnapLinePerpendicular)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_SnapLinePerpendicular)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_SnapLine)

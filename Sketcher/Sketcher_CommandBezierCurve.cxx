@@ -259,7 +259,7 @@ void Sketcher_CommandBezierCurve::storePoles()
 }
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandBezierCurve,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandBezierCurve,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandBezierCurve)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandBezierCurve)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

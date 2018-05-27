@@ -435,7 +435,7 @@ void Sketcher_CommandArc3P::setTempLine()
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_CommandArc3P,Sketcher_Command)
-IMPLEMENT_STANDARD_RTTI(Sketcher_CommandArc3P,Sketcher_Command)
+IMPLEMENT_STANDARD_RTTI(Sketcher_CommandArc3P)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_CommandArc3P)
 IMPLEMENT_STANDARD_SUPERTYPE(Sketcher_Command)

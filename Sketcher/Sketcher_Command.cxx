@@ -20,7 +20,7 @@ Sketcher_Command::Sketcher_Command(const Standard_CString name)
 	myStyle = Aspect_TOL_SOLID;
 	myWidth = 1.0;
 	myPrs3dAspect = new Prs3d_LineAspect(myColor,myStyle,myWidth);
-	myDrawer = new AIS_Drawer();
+	//myDrawer = new AIS_Drawer();
 
 
 	myPolylineMode= Standard_False;
@@ -155,8 +155,8 @@ void Sketcher_Command::AddObject(const Handle(Geom2d_Geometry)& theGeom2d_Geomet
 		myPrs3dAspect->SetTypeOfLine(myStyle);
 		myPrs3dAspect->SetWidth(myWidth);
 
-		myDrawer->SetLineAspect(myPrs3dAspect);
-		theAIS_InteractiveObject->SetAttributes(myDrawer);
+		//myDrawer->SetLineAspect(myPrs3dAspect);
+		//theAIS_InteractiveObject->SetAttributes(myDrawer);
 	}
 
 	Handle(Sketcher_Object) so = new Sketcher_Object(theGeom2d_Geometry,theAIS_InteractiveObject,currentName,theGeometryType,GetTypeOfMethod());
@@ -201,7 +201,7 @@ void Sketcher_Command::SetPolylineMode (Standard_Boolean mode)
 
 
 IMPLEMENT_STANDARD_HANDLE(Sketcher_Command,MMgt_TShared)
-IMPLEMENT_STANDARD_RTTI(Sketcher_Command,MMgt_TShared)
+IMPLEMENT_STANDARD_RTTI(Sketcher_Command)
 
 IMPLEMENT_STANDARD_TYPE(Sketcher_Command)
 IMPLEMENT_STANDARD_SUPERTYPE(MMgt_TShared)

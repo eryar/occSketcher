@@ -14,7 +14,7 @@ Geom2d_Arc::Geom2d_Arc(const gp_Circ2d& C)
 :Geom2d_Circle(C)
 {
 	myFirstParam = 0.0;
-	myLastParam = 2*PI;
+	myLastParam = 2.0 * M_PI;
 }
 
 /**
@@ -27,7 +27,7 @@ Geom2d_Arc::Geom2d_Arc(const gp_Ax2d& Ax2d,const Standard_Real R)
 :Geom2d_Circle(Ax2d,R)
 {
 	myFirstParam = 0.0;
-	myLastParam = 2*PI;
+	myLastParam = 2.0 * M_PI;
 }
 
 /**
@@ -53,16 +53,16 @@ void Geom2d_Arc::SetParam(const gp_Pnt2d& start,const gp_Pnt2d& mid,const gp_Pnt
 	CheckParam();
 
 	if( (myFirstParam < u) && (u < myLastParam) ||
-		(myFirstParam < u + 2*Standard_PI) && (u + 2*Standard_PI < myLastParam) );
+		(myFirstParam < u + 2* M_PI) && (u + 2* M_PI < myLastParam) );
 	else 
 	{
 		Standard_Real u;
-		if(myLastParam > 2*Standard_PI)
+		if(myLastParam > 2* M_PI)
 		{
-			myLastParam -= 2*Standard_PI;
+			myLastParam -= 2* M_PI;
 			u = myFirstParam;
 		}
-		else u = myFirstParam + 2*Standard_PI;
+		else u = myFirstParam + 2* M_PI;
 
 		myFirstParam = myLastParam;
 		myLastParam = u;
@@ -174,17 +174,17 @@ gp_Pnt2d Geom2d_Arc::MiddlePnt() const
  */
 void Geom2d_Arc::CheckParam()
 {
-	while(myFirstParam > 2*Standard_PI)
-		myFirstParam-= 2*Standard_PI;
-	while(myLastParam > 2*Standard_PI || (myLastParam - myFirstParam )> 2*Standard_PI)
-		myLastParam -= 2*Standard_PI;
+	while(myFirstParam > 2* M_PI)
+		myFirstParam-= 2* M_PI;
+	while(myLastParam > 2* M_PI || (myLastParam - myFirstParam )> 2* M_PI)
+		myLastParam -= 2* M_PI;
 
 	while(myFirstParam > myLastParam)
-		myLastParam += 2*Standard_PI;
+		myLastParam += 2* M_PI;
 }
 
 IMPLEMENT_STANDARD_HANDLE(Geom2d_Arc,Geom2d_Circle)
-IMPLEMENT_STANDARD_RTTI(Geom2d_Arc,Geom2d_Circle)
+IMPLEMENT_STANDARD_RTTI(Geom2d_Arc)
 
 IMPLEMENT_STANDARD_TYPE(Geom2d_Arc)
 IMPLEMENT_STANDARD_SUPERTYPE(Geom2d_Circle)
