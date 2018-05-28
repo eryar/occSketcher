@@ -18,12 +18,12 @@ public:
  * \fn Sketcher_GUI() 
  * \brief Constructs a Sketcher_GUI
  */
-Sketcher_GUI();
+Standard_EXPORT Sketcher_GUI();
 /**
  * \fn ~Sketcher_GUI() 
  * \brief destructor
  */
-~Sketcher_GUI();
+Standard_EXPORT ~Sketcher_GUI();
 
 /**
  * \fn SetContext(Handle(AIS_InteractiveContext)& theContext)

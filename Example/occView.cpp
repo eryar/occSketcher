@@ -13,6 +13,8 @@
 
 #include "occView.h"
 
+#include "Sketcher_QtGUI.hxx"
+
 #include <QMenu>
 #include <QMouseEvent>
 #include <QRubberBand>
@@ -109,6 +111,10 @@ void OccView::init()
     myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
+
+    //
+    Sketcher_QtGUI* aSketcherGui = new Sketcher_QtGUI(this);
+    mySketcher = new Sketcher(myContext, aSketcherGui);
 }
 
 const Handle(AIS_InteractiveContext)& OccView::getContext() const

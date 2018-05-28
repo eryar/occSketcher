@@ -12,6 +12,8 @@
 #ifndef _OCCVIEW_H_
 #define _OCCVIEW_H_
 
+#include "Sketcher.hxx"
+
 #include <QGLWidget>
 
 #include <AIS_InteractiveContext.hxx>
@@ -115,6 +117,8 @@ private:
     //! rubber rectangle for the mouse selection.
     QRubberBand* myRectBand;
 
+    //
+    Sketcher* mySketcher;
 };
 
 #endif // _OCCVIEW_H_

@@ -55,12 +55,12 @@ public:
  * \param theContext Handle(AIS_InteractiveContext)&
  * \param sg Sketcher_GUI* 
  */
-Sketcher(Handle(AIS_InteractiveContext)& theContext,Sketcher_GUI* sg);
+Standard_EXPORT Sketcher(Handle(AIS_InteractiveContext)& theContext,Sketcher_GUI* sg);
 /**
  * \fn ~Sketcher()
  * \brief destructor
  */
-~Sketcher();
+Standard_EXPORT ~Sketcher();
 
 /**
  * \fn SetContext(Handle(AIS_InteractiveContext)& theContext)
