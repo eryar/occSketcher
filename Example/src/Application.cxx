@@ -4,13 +4,13 @@
 #include "Translate.h"
 #include "View.h"
 
-#include <qvbox.h>
 #include <qmenubar.h>
 #include <qstatusbar.h>
 #include <qworkspace.h>
 #include <qmessagebox.h>
 #include <qapplication.h>
 #include <qsignalmapper.h>
+#include <QVBoxLayout>
 
 #include <stdlib.h>
 
@@ -18,7 +18,7 @@ static ApplicationWindow* stApp;
 static QWorkspace* stWs;
 
 ApplicationWindow::ApplicationWindow()
-    : QMainWindow( 0, "Sample ImportExport main window" ),
+    : QMainWindow( 0),
 myImportPopup( 0 ),
 myExportPopup( 0 ),
 myWindowPopup( 0 ),
@@ -31,15 +31,15 @@ myStdToolBar( 0 )
 	myIsDocuments = false;
 
     // create and define the central widget
-    QVBox* vb = new QVBox( this );
-    vb->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
-    stWs = new QWorkspace( vb );
-    setCentralWidget( vb );
+    //QVBoxLayout* vb = new QVBoxLayout( this );
+    //vb->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
+    stWs = new QWorkspace(  );
+    setCentralWidget( stWs );
 
 	createStandardOperations();
 	createCasCadeOperations();
 
-    statusBar()->message( tr("INF_READY"), 5000 );
+    statusBar()->showMessage( tr("INF_READY"), 5000 );
     resize( 1000, 700 );
 }
 
@@ -61,63 +61,72 @@ void ApplicationWindow::createStandardOperations()
 			* viewToolAction, * viewStatusAction,
 			* helpAboutAction;
 
-	fileNewAction = new QAction( tr("TBR_NEW"), newIcon, tr("MNU_NEW"), CTRL+Key_N, this, "new" );
+	fileNewAction = new QAction( tr("TBR_NEW"), this );
 	connect( fileNewAction, SIGNAL( activated() ) , this, SLOT( onNewDoc() ) );
 	myStdActions.insert(FileNewId, fileNewAction);
 
-    fileCloseAction = new QAction( tr("TBR_CLOSE"), closeIcon, tr("MNU_CLOSE"), CTRL+Key_W, this, "close");
+    fileCloseAction = new QAction( tr("TBR_CLOSE"), this);
     connect( fileCloseAction, SIGNAL( activated() ) , this, SLOT( onCloseWindow() ) );
 	myStdActions.insert(FileCloseId, fileCloseAction);
 
-    fileQuitAction = new QAction( tr("TBR_QUIT"), tr("MNU_QUIT"), CTRL+Key_Q, this, "quit" );
+    fileQuitAction = new QAction( tr("TBR_QUIT"), this);
     connect( fileQuitAction, SIGNAL( activated() ) , qApp, SLOT( closeAllWindows() ) );
 	myStdActions.insert(FileQuitId, fileQuitAction);
 
-	viewToolAction = new QAction( tr("TBR_TOOL_BAR"), tr("MNU_TOOL_BAR"), 0, this, "toolbar");
+	viewToolAction = new QAction( tr("TBR_TOOL_BAR"), this);
 	connect( viewToolAction, SIGNAL( activated() ) , this, SLOT( onViewToolBar() ));
-	viewToolAction->setToggleAction(true);
-	viewToolAction->setOn( true );
+	//viewToolAction->setToggleAction(true);
+	//viewToolAction->setOn( true );
 	myStdActions.insert(ViewToolId, viewToolAction);
 
-	viewStatusAction = new QAction( tr("TBR_STATUS_BAR"), tr("MNU_STATUS_BAR"), 0, this, "statusbar");
+	viewStatusAction = new QAction( tr("TBR_STATUS_BAR"), this);
 	connect( viewStatusAction, SIGNAL( activated() ), this, SLOT( onViewStatusBar() ));
-	viewStatusAction->setToggleAction(true);
-	viewStatusAction->setOn( true );
+	//viewStatusAction->setToggleAction(true);
+	//viewStatusAction->setOn( true );
 	myStdActions.insert(ViewStatusId, viewStatusAction);
 
-	helpAboutAction = new QAction( tr("TBR_ABOUT"), helpIcon, tr("MNU_ABOUT"), Key_F1, this, "about" );
+	helpAboutAction = new QAction( tr("TBR_ABOUT"), this );
 	connect( helpAboutAction, SIGNAL( activated() ) , this, SLOT( onAbout() ) );
 	myStdActions.insert(HelpAboutId, helpAboutAction);
 
     // populate a tool bar with some actions
 
-    myStdToolBar = new QToolBar( this, "file operations" );
-    myStdToolBar->setLabel( tr( "File Operations" ) );
-    fileNewAction->addTo( myStdToolBar );
-	helpAboutAction->addTo( myStdToolBar );
+    myStdToolBar = new QToolBar( "file operations",  this);
+    //myStdToolBar->setLabel( tr( "File Operations" ) );
+    //fileNewAction->addTo( myStdToolBar );
+	//helpAboutAction->addTo( myStdToolBar );
+    myStdToolBar->addAction(fileNewAction);
+    myStdToolBar->addAction(helpAboutAction);
 
     // popuplate a menu with all actions
 
-    myFilePopup = new QPopupMenu( this );
-    menuBar()->insertItem( tr("MNU_FILE"), myFilePopup );
-    fileNewAction->addTo( myFilePopup );
-    fileCloseAction->addTo( myFilePopup );
-    myFilePopup->insertSeparator();
-    fileQuitAction->addTo( myFilePopup );
+    myFilePopup = new QMenu( this );
+    menuBar()->addMenu(myFilePopup );
+    //fileNewAction->addTo( myFilePopup );
+    //fileCloseAction->addTo( myFilePopup );
+    //myFilePopup->insertSeparator();
+    //fileQuitAction->addTo( myFilePopup );
+    myFilePopup->addAction(fileNewAction);
+    myFilePopup->addAction(fileCloseAction);
+    myFilePopup->addSeparator();
+    myFilePopup->addAction(fileQuitAction);
 
 	// add a view menu
 
-	QPopupMenu * view = new QPopupMenu( this );
-	menuBar()->insertItem( tr("MNU_VIEW"), view);
-	viewToolAction->addTo(view);
-	viewStatusAction->addTo(view);
+	QMenu * view = new QMenu( this );
+	menuBar()->addMenu(view);
+	//viewToolAction->addTo(view);
+	//viewStatusAction->addTo(view);
+    view->addAction(viewToolAction);
+    view->addAction(viewStatusAction);
 
 	// add a help menu
 
-    QPopupMenu * help = new QPopupMenu( this );
-    menuBar()->insertSeparator();
-    menuBar()->insertItem( tr("MNU_HELP"), help );
-	helpAboutAction->addTo( help );
+    QMenu * help = new QMenu( this );
+    menuBar()->addSeparator();
+    menuBar()->addMenu( help );
+	//helpAboutAction->addTo( help );
+    help->addAction(helpAboutAction);
 
   myStdActions.at(FileCloseId)->setEnabled(myDocuments.count() > 0);
 }

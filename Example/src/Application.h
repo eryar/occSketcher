@@ -6,7 +6,7 @@
 #include <qmainwindow.h>
 #include <qaction.h>
 #include <qtoolbar.h>
-#include <qpopupmenu.h>
+#include <qmenu.h>
 #include <qworkspace.h>
 #include <qlist.h>
 
@@ -65,7 +65,7 @@ private:
     int                             myNbDocuments;
 	bool                            myIsDocuments;
 
-	QList<QAction>                  myStdActions;
+	QList<QAction*>                  myStdActions;
     QList<QAction>                  myToolActions;
     QList<QAction>                  myMaterialActions;
 	QList<QAction>                  myCasCadeTranslateActions;
@@ -73,10 +73,10 @@ private:
 
 	QToolBar*                       myStdToolBar;
 	QToolBar*                       myCasCadeBar;
-	QPopupMenu*                     myFilePopup;
-	QPopupMenu*                     myWindowPopup;
-	QPopupMenu*                     myImportPopup;
-	QPopupMenu*                     myExportPopup;
+	QMenu*                     myFilePopup;
+	QMenu*                     myWindowPopup;
+	QMenu*                     myImportPopup;
+	QMenu*                     myExportPopup;
 };
 
 #endif

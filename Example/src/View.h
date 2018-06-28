@@ -138,13 +138,13 @@ protected:
 private:
     void                          initCursors();
     void                          initViewActions();
-    void                          onLButtonDown( ButtonState nFlags, const QPoint point );
-    void                          onMButtonDown( ButtonState nFlags, const QPoint point );
-    void                          onRButtonDown( ButtonState nFlags, const QPoint point );
-    void                          onLButtonUp( ButtonState nFlags, const QPoint point );
-    void                          onMButtonUp( ButtonState nFlags, const QPoint point );
-    void                          onRButtonUp( ButtonState nFlags, const QPoint point );
-    void                          onMouseMove( ButtonState nFlags, const QPoint point );
+    void                          onLButtonDown( const int nFlags, const QPoint point );
+    void                          onMButtonDown( const int nFlags, const QPoint point );
+    void                          onRButtonDown( const int nFlags, const QPoint point );
+    void                          onLButtonUp( Qt::MouseButtons nFlags, const QPoint point );
+    void                          onMButtonUp( Qt::MouseButtons nFlags, const QPoint point );
+    void                          onRButtonUp( Qt::MouseButtons nFlags, const QPoint point );
+    void                          onMouseMove( Qt::MouseButtons nFlags, const QPoint point );
     void                          DragEvent( const int x, const int y, const int TheState );
     void                          InputEvent( const int x, const int y );
     void                          MoveEvent( const int x, const int y );
