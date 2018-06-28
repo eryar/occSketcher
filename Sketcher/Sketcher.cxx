@@ -253,6 +253,23 @@ void Sketcher::OnMouseInputEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate
 	}
 }
 
+void Sketcher::OnMouseInputEvent(Standard_Integer theX, Standard_Integer theY)
+{
+    Handle(V3d_View) aView = myContext->CurrentViewer()->ActiveView();
+
+    Standard_Real aVx = 0.0;
+    Standard_Real aVy = 0.0;
+    Standard_Real aVz = 0.0;
+    Standard_Real aPx = 0.0;
+    Standard_Real aPy = 0.0;
+    Standard_Real aPz = 0.0;
+
+    aView->Convert(theX, theY, aVx, aVy, aVz);
+    aView->Proj(aPx, aPy, aPz);
+
+    OnMouseInputEvent(aVx, aVy, aVz, aPx, aPy, aPz);
+}
+
 /**
  * \fn OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz)
  * \brief mouse move handler
@@ -272,6 +289,23 @@ void Sketcher::OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate 
 		SelectCurCommand();
 		CurCommand->MouseMoveEvent(myCurrentPnt2d);
 	}
+}
+
+void Sketcher::OnMouseMoveEvent(Standard_Integer theX, Standard_Integer theY)
+{
+    Handle(V3d_View) aView = myContext->CurrentViewer()->ActiveView();
+
+    Standard_Real aVx = 0.0;
+    Standard_Real aVy = 0.0;
+    Standard_Real aVz = 0.0;
+    Standard_Real aPx = 0.0;
+    Standard_Real aPy = 0.0;
+    Standard_Real aPz = 0.0;
+
+    aView->Convert(theX, theY, aVx, aVy, aVz);
+    aView->Proj(aPx, aPy, aPz);
+
+    OnMouseMoveEvent(aVx, aVy, aVz, aPx, aPy, aPz);
 }
 
 /**

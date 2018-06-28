@@ -17,7 +17,10 @@
 #include <Geom_Line.hxx>
 #include <Geom_Plane.hxx>
 #include <Geom2d_CartesianPoint.hxx>
+
 #include <V3d_Coordinate.hxx>
+#include <V3d_Viewer.hxx>
+#include <V3d_View.hxx>
 
 #include "Sketcher_SnapType.hxx"
 #include "Sketcher_AnalyserSnap.hxx"
@@ -146,7 +149,7 @@ void SetWidth(const Standard_Real& theWidth);
  * \return void 
  * \param theMethod const Sketcher_ObjectTypeOfMethod
  */
-void ObjectAction(const Sketcher_ObjectTypeOfMethod theMethod);
+Standard_EXPORT void ObjectAction(const Sketcher_ObjectTypeOfMethod theMethod);
 
 /**
  * \fn GetStatus()
@@ -166,7 +169,20 @@ void ObjectAction(const Sketcher_ObjectTypeOfMethod theMethod);
  * \param projVy const Quantity_Parameter&
  * \param projVz const Quantity_Parameter&
 */
-void OnMouseInputEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz);
+Standard_EXPORT void OnMouseInputEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz);
+
+/**
+ * \fn OnMouseInputEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz)
+ * \brief input event handler
+ * \return void 
+ * \param v3dX const V3d_Coordinate&
+ * \param v3dY const V3d_Coordinate&
+ * \param v3dZ const V3d_Coordinate&
+ * \param projVx const Quantity_Parameter&
+ * \param projVy const Quantity_Parameter&
+ * \param projVz const Quantity_Parameter&
+*/
+Standard_EXPORT void OnMouseInputEvent(Standard_Integer theX, Standard_Integer theY);
 
 /**
  * \fn OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz)
@@ -179,14 +195,28 @@ void OnMouseInputEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,con
  * \param projVy const Quantity_Parameter&
  * \param projVz const Quantity_Parameter&
 */
-void OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz);
+Standard_EXPORT void OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz);
+
+/**
+ * \fn OnMouseMoveEvent(const V3d_Coordinate &v3dX,const V3d_Coordinate &v3dY,const V3d_Coordinate &v3dZ,const Quantity_Parameter& projVx,const Quantity_Parameter& projVy,const Quantity_Parameter& projVz)
+ * \brief mouse move handler
+ * \return void 
+ * \param v3dX const V3d_Coordinate&
+ * \param v3dY const V3d_Coordinate&
+ * \param v3dZ const V3d_Coordinate&
+ * \param projVx const Quantity_Parameter&
+ * \param projVy const Quantity_Parameter&
+ * \param projVz const Quantity_Parameter&
+*/
+Standard_EXPORT void OnMouseMoveEvent(Standard_Integer theX, Standard_Integer theY);
+
 
 /**
  * \fn OnCancel()
  * \brief cancel event handler, stop entering object
  * \return void 
  */
-void OnCancel();
+Standard_EXPORT void OnCancel();
 			
 /**
  * \fn DeleteSelectedObject()

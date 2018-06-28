@@ -1,0 +1,160 @@
+# This is a Qt message file in .po format.  Each msgid starts with
+# a scope.  This scope should *NOT* be translated - eg. "Foo::Bar"
+# would be translated to "Pub", not "Foo::Pub".
+msgid ""
+msgstr ""
+"Project-Id-Version: example-Qt-message-extraction\n"
+"POT-Creation-Date: 1999-02-23 15:38+0200\n"
+"PO-Revision-Date: 1999-02-23 15:38+0200\n"
+"Last-Translator: \n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+
+msgid "ICON_NEW"
+msgstr "new.png"
+
+msgid "ICON_CLOSE"
+msgstr "close.png"
+
+msgid "ICON_HELP"
+msgstr "help.png"
+
+msgid "ICON_DOC"
+msgstr "document.png"
+
+msgid "ICON_VIEW_FITALL"
+msgstr "view_fitall.png"
+
+msgid "ICON_VIEW_FITAREA"
+msgstr "view_fitarea.png"
+
+msgid "ICON_VIEW_ZOOM"
+msgstr "view_zoom.png"
+
+msgid "ICON_VIEW_PAN"
+msgstr "view_pan.png"
+
+msgid "ICON_VIEW_ROTATION"
+msgstr "view_rotate.png"
+
+msgid "ICON_VIEW_GLOBALPAN"
+msgstr "view_glpan.png"
+
+msgid "ICON_VIEW_FRONT"
+msgstr "view_front.png"
+
+msgid "ICON_VIEW_BACK"
+msgstr "view_back.png"
+
+msgid "ICON_VIEW_TOP"
+msgstr "view_top.png"
+
+msgid "ICON_VIEW_BOTTOM"
+msgstr "view_bottom.png"
+
+msgid "ICON_VIEW_LEFT"
+msgstr "view_left.png"
+
+msgid "ICON_VIEW_RIGHT"
+msgstr "view_right.png"
+
+msgid "ICON_VIEW_AXO"
+msgstr "view_axo.png"
+
+msgid "ICON_VIEW_RESET"
+msgstr "view_reset.png"
+
+msgid "ICON_VIEW_HLRON"
+msgstr "view_comp_on.png"
+
+msgid "ICON_VIEW_HLROFF"
+msgstr "view_comp_off.png"
+
+msgid "ICON_SAMPLE"
+msgstr "lamp.png"
+
+msgid "ICON_CURSOR_ZOOM"
+msgstr "cursor_zoom.png"
+
+msgid "ICON_CURSOR_ROTATE"
+msgstr "cursor_rotate.png"
+
+msgid "ICON_ERASE"
+msgstr "erase.png"
+
+msgid "ICON_DELETE"
+msgstr "delete.png"
+
+msgid "ICON_PROP"
+msgstr "property.png"
+
+msgid "ICON_REDRAW"
+msgstr "redraw.png"
+
+msgid "ICON_PLANE"
+msgstr "plane.png"
+
+msgid "ICON_GRID"
+msgstr "grid.png"
+
+msgid "ICON_VIEW_IPOINT"
+msgstr "inputPoint.png"
+
+msgid "ICON_VIEW_ILINE"
+msgstr "inputLine.png"
+
+msgid "ICON_VIEW_ICIRCLE"
+msgstr "inputCircle.png"
+
+msgid "ICON_VIEW_ICIRCLE3P"
+msgstr "inputCircle3p.png"
+ 
+msgid "ICON_VIEW_ICIRCLE2PTAN"
+msgstr "inputCircle2PTan.png"
+
+msgid "ICON_VIEW_ICIRCLEP2TAN"
+msgstr "inputCircleP2Tan.png"
+
+msgid "ICON_VIEW_ICIRCLE3TAN"
+msgstr "inputCircle3tan.png"
+
+msgid "ICON_VIEW_IARC3P"
+msgstr "inputArc3p.png"
+
+msgid "ICON_VIEW_IARCC2P"
+msgstr "inputArcCenter2p.png"
+
+msgid "ICON_VIEW_IBEZC"
+msgstr "inputBezierCurve.png"
+
+msgid "ICON_VIEW_TRIM"
+msgstr "TrimCurve.png"
+
+msgid "ICON_SNAP_NON"
+msgstr "snapnon.png"
+
+msgid "ICON_SNAP_END"
+msgstr "snapend.png"
+
+msgid "ICON_SNAP_MIDDLE"
+msgstr "snapmiddle.png"
+
+msgid "ICON_SNAP_CENTER"
+msgstr "snapcenter.png"
+
+msgid "ICON_SNAP_NEAREST"
+msgstr "snapnearest.png"
+
+msgid "ICON_VIEW_INTERSECTION"
+msgstr "snapintersection.png"
+
+msgid "ICON_VIEW_TANGENT"
+msgstr "snaptangent.png"
+
+msgid "ICON_VIEW_PARALLEL"
+msgstr "snapparallel.png"
+
+msgid "ICON_VIEW_PERPENDICULAR"
+msgstr "snapperpendicular.png"
+
+msgid "ICON_VIEW_ANALYSER"
+msgstr "snapanalyser.png"
