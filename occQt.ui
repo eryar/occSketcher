@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>occQt</string>
+   <string>occSketcher</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="occqt.qrc">
+   <iconset>
     <normaloff>:/Resources/lamp.png</normaloff>:/Resources/lamp.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget"/>
@@ -46,9 +46,9 @@
    </widget>
    <widget class="QMenu" name="menuPrimitive">
     <property name="title">
-     <string>Primitive</string>
+     <string>Draw</string>
     </property>
-    <addaction name="actionBox"/>
+    <addaction name="actionLine"/>
     <addaction name="actionCone"/>
     <addaction name="actionSphere"/>
     <addaction name="actionCylinder"/>
@@ -102,7 +102,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/Zoom.png</normaloff>:/Resources/Zoom.png</iconset>
    </property>
    <property name="text">
@@ -114,7 +114,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/Pan.png</normaloff>:/Resources/Pan.png</iconset>
    </property>
    <property name="text">
@@ -129,7 +129,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/Rotate.png</normaloff>:/Resources/Rotate.png</iconset>
    </property>
    <property name="text">
@@ -138,7 +138,7 @@
   </action>
   <action name="actionReset">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/Home.png</normaloff>:/Resources/Home.png</iconset>
    </property>
    <property name="text">
@@ -147,7 +147,7 @@
   </action>
   <action name="actionFitAll">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/FitAll.png</normaloff>:/Resources/FitAll.png</iconset>
    </property>
    <property name="text">
@@ -156,25 +156,25 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/lamp.png</normaloff>:/Resources/lamp.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
    </property>
   </action>
-  <action name="actionBox">
+  <action name="actionLine">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/box.png</normaloff>:/Resources/box.png</iconset>
    </property>
    <property name="text">
-    <string>Box</string>
+    <string>Line</string>
    </property>
   </action>
   <action name="actionCone">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/cone.png</normaloff>:/Resources/cone.png</iconset>
    </property>
    <property name="text">
@@ -183,7 +183,7 @@
   </action>
   <action name="actionSphere">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/sphere.png</normaloff>:/Resources/sphere.png</iconset>
    </property>
    <property name="text">
@@ -192,7 +192,7 @@
   </action>
   <action name="actionCylinder">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/cylinder.png</normaloff>:/Resources/cylinder.png</iconset>
    </property>
    <property name="text">
@@ -201,7 +201,7 @@
   </action>
   <action name="actionTorus">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/torus.png</normaloff>:/Resources/torus.png</iconset>
    </property>
    <property name="text">
@@ -210,7 +210,7 @@
   </action>
   <action name="actionFillet">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/fillet.png</normaloff>:/Resources/fillet.png</iconset>
    </property>
    <property name="text">
@@ -219,7 +219,7 @@
   </action>
   <action name="actionChamfer">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/chamfer.png</normaloff>:/Resources/chamfer.png</iconset>
    </property>
    <property name="text">
@@ -228,7 +228,7 @@
   </action>
   <action name="actionExtrude">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/extrude.png</normaloff>:/Resources/extrude.png</iconset>
    </property>
    <property name="text">
@@ -237,7 +237,7 @@
   </action>
   <action name="actionRevolve">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/revolve.png</normaloff>:/Resources/revolve.png</iconset>
    </property>
    <property name="text">
@@ -246,7 +246,7 @@
   </action>
   <action name="actionLoft">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/loft.png</normaloff>:/Resources/loft.png</iconset>
    </property>
    <property name="text">
@@ -255,7 +255,7 @@
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/cut.png</normaloff>:/Resources/cut.png</iconset>
    </property>
    <property name="text">
@@ -264,7 +264,7 @@
   </action>
   <action name="actionFuse">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/fuse.png</normaloff>:/Resources/fuse.png</iconset>
    </property>
    <property name="text">
@@ -273,7 +273,7 @@
   </action>
   <action name="actionCommon">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/common.png</normaloff>:/Resources/common.png</iconset>
    </property>
    <property name="text">
@@ -282,7 +282,7 @@
   </action>
   <action name="actionHelix">
    <property name="icon">
-    <iconset resource="occqt.qrc">
+    <iconset>
      <normaloff>:/Resources/helix.png</normaloff>:/Resources/helix.png</iconset>
    </property>
    <property name="text">

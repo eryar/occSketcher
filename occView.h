@@ -12,15 +12,17 @@
 #ifndef _OCCVIEW_H_
 #define _OCCVIEW_H_
 
-#include <QGLWidget>
+#include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
+
+#include "Sketcher.hxx"
 
 class QMenu;
 class QRubberBand;
 
 //! adapted a QGLWidget for OpenCASCADE viewer.
-class OccView : public QGLWidget
+class OccView : public QWidget
 {
     Q_OBJECT
 
@@ -33,7 +35,8 @@ public:
         CurAction3d_WindowZooming,
         CurAction3d_DynamicPanning,
         CurAction3d_GlobalPanning,
-        CurAction3d_DynamicRotation
+        CurAction3d_DynamicRotation,
+        CurAction3d_Sketcher
     };
 
 public:
@@ -53,7 +56,12 @@ public slots:
     void zoom(void);
     void rotate(void);
 
+    //! 
+    void drawLine();
+
 protected:
+    virtual QPaintEngine* paintEngine() const;
+
     // Paint events.
     virtual void paintEvent(QPaintEvent* theEvent);
     virtual void resizeEvent(QResizeEvent* theEvent);
@@ -115,6 +123,7 @@ private:
     //! rubber rectangle for the mouse selection.
     QRubberBand* myRectBand;
 
+    Sketcher* mySketcher;
 };
 
 #endif // _OCCVIEW_H_

@@ -4,30 +4,25 @@
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = occQt
+TARGET = occSketcher
 TEMPLATE = app
 
-SOURCES += main.cpp \
-    occQt.cpp       \
-    occView.cpp
+SOURCES += Main.cxx     \
+    Sketcher.cxx
 
 CONFIG += c++11
 
-HEADERS  += \
-    occQt.h \
-    occView.h
-
-FORMS    += \
-    occQt.ui
+HEADERS  += Sketcher.h  
+    
 
 RESOURCES += \
-    occqt.qrc
+    occSketcher.qrc
 
-CASROOT = D:/OpenCASCADE7.2.0/opencascade-7.2.0
+CASROOT = D:/OpenCASCADE-7.5.0/opencascade-7.5.0
     
 win32 {
     DEFINES +=  \

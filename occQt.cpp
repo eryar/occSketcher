@@ -96,7 +96,7 @@ void occQt::createActions( void )
     connect(ui.actionFitAll, SIGNAL(triggered()), myOccView, SLOT(fitAll()));
 
     // Primitive
-    connect(ui.actionBox, SIGNAL(triggered()), this, SLOT(makeBox()));
+    connect(ui.actionLine, SIGNAL(triggered()), myOccView, SLOT(drawLine()));
     connect(ui.actionCone, SIGNAL(triggered()), this, SLOT(makeCone()));
     connect(ui.actionSphere, SIGNAL(triggered()), this, SLOT(makeSphere()));
     connect(ui.actionCylinder, SIGNAL(triggered()), this, SLOT(makeCylinder()));
@@ -134,8 +134,8 @@ void occQt::createToolBars( void )
     aToolBar->addAction(ui.actionReset);
     aToolBar->addAction(ui.actionFitAll);
 
-    aToolBar = addToolBar(tr("&Primitive"));
-    aToolBar->addAction(ui.actionBox);
+    aToolBar = addToolBar(tr("&Draw"));
+    aToolBar->addAction(ui.actionLine);
     aToolBar->addAction(ui.actionCone);
     aToolBar->addAction(ui.actionSphere);
     aToolBar->addAction(ui.actionCylinder);

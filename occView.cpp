@@ -13,7 +13,10 @@
 
 #include "occView.h"
 
+#include "Sketcher_QtGUI.hxx"
+
 #include <QMenu>
+#include <QDebug>
 #include <QMouseEvent>
 #include <QRubberBand>
 #include <QStyleFactory>
@@ -48,7 +51,7 @@ static Handle(Graphic3d_GraphicDriver)& GetGraphicDriver()
 }
 
 OccView::OccView(QWidget* parent )
-    : QGLWidget(parent),
+    : QWidget(parent),
     myXmin(0),
     myYmin(0),
     myXmax(0),
@@ -60,9 +63,15 @@ OccView::OccView(QWidget* parent )
     // No Background
     setBackgroundRole( QPalette::NoRole );
 
+    // set focus policy to threat QContextMenuEvent from keyboard  
+    setFocusPolicy(Qt::StrongFocus);
+    setAttribute(Qt::WA_PaintOnScreen);
+    setAttribute(Qt::WA_NoSystemBackground);
+
     // Enable the mouse tracking, by default the mouse tracking is disabled.
     setMouseTracking( true );
 
+    init();
 }
 
 void OccView::init()
@@ -109,6 +118,17 @@ void OccView::init()
     myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
+
+    //
+    mySketcher = new Sketcher(myContext, nullptr);
+}
+
+/*!
+Get paint engine for the OpenGL viewer. [ virtual public ]
+*/
+QPaintEngine* OccView::paintEngine() const
+{
+    return nullptr;
 }
 
 const Handle(AIS_InteractiveContext)& OccView::getContext() const
@@ -161,6 +181,15 @@ void OccView::rotate( void )
     myCurrentMode = CurAction3d_DynamicRotation;
 }
 
+void OccView::drawLine()
+{
+    qDebug() << "Draw Line";
+
+    mySketcher->ObjectAction(Line2P_Method);
+
+    myCurrentMode = CurAction3d_Sketcher;
+}
+
 void OccView::mousePressEvent( QMouseEvent* theEvent )
 {
     if (theEvent->button() == Qt::LeftButton)
@@ -211,6 +240,14 @@ void OccView::onLButtonDown( const int /*theFlags*/, const QPoint thePoint )
     myXmax = thePoint.x();
     myYmax = thePoint.y();
 
+    if (myCurrentMode == CurAction3d_Sketcher)
+    {
+        double aVx, aVy, aVz;
+        double aPx, aPy, aPz;
+
+        myView->Convert(myXmin, myYmin, aVx, aVy, aVz);        myView->Proj(aPx, aPy, aPz);
+        mySketcher->OnMouseInputEvent(aVx, aVy, aVz, aPx, aPy, aPz);
+    }
 }
 
 void OccView::onMButtonDown( const int /*theFlags*/, const QPoint thePoint )
@@ -339,6 +376,15 @@ void OccView::onMouseMove( const int theFlags, const QPoint thePoint )
          default:
             break;
         }
+    }
+
+    if (myCurrentMode == CurAction3d_Sketcher)
+    {
+        double aVx, aVy, aVz;
+        double aPx, aPy, aPz;
+
+        myView->Convert(myXmin, myYmin, aVx, aVy, aVz);        myView->Proj(aPx, aPy, aPz);
+        mySketcher->OnMouseMoveEvent(aVx, aVy, aVz, aPx, aPy, aPz);
     }
 
 }
